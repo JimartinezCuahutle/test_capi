@@ -15,7 +15,15 @@ class CreateUserDomicilioTable extends Migration
     {
         Schema::create('user_domicilio', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->string('domicilio');
+            $table->string('numero_exterior');
+            $table->string('colonia');
+            $table->string('cp');
+            $table->string('ciudad');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
