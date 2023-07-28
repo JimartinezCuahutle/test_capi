@@ -41,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    public function userDomicilio()
+    {
+        return $this->hasOne(UserDomicilio::class);
+    }
 }
